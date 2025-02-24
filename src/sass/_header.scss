@@ -1,0 +1,266 @@
+.header {
+  position: fixed;
+  top: 0;
+  grid-area: head;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  padding: 3rem 1rem;
+  width: 100%;
+
+  &__logo {
+    height: 4.6rem;
+    display: block;
+    margin-left: 3rem;
+  }
+}
+
+.search {
+  // background-color: rgb(255, 255, 255);
+  background-color: #b7c9e21e;
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  transition: all 0.3s;
+  margin: 5rem 3rem 3rem 3rem;
+  position: relative;
+
+  &:focus-within {
+    transform: translateY(-2px);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    // box-shadow: 0 0.7rem 3rem rgba(black, 0.08);
+    // border: 1px solid black;
+  }
+
+  &__field {
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.7rem;
+    width: 100%;
+    padding: 1.5rem 0;
+
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgba(105, 105, 105, 0.548);
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      .search {
+        width: 80%;
+      }
+    }
+
+
+  }
+
+  &__btn {
+    font-weight: 600;
+    font-family: inherit;
+    position: absolute;
+    right: 0;
+  }
+
+  @media only screen and (max-width: 386px) {
+    margin: 5rem 1rem 3rem 1rem;
+    width: 85%;
+  }
+
+  @media only screen and (max-width: 344px) {
+    width: 80%;
+  }
+
+
+  @media only screen and (max-width: 332px) {
+    width: 75%;
+
+    &__field {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media only screen and (max-width: 319px) {
+    width: 70%;
+  }
+
+}
+
+
+
+
+.nav {
+  align-self: center;
+  margin-right: 2.5rem;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+  }
+
+  &__item {
+    position: relative;
+    list-style: none;
+  }
+
+  &__btn {
+    height: 100%;
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 1.5rem;
+    transition: all 0.3s;
+    margin-left: 50px;
+
+    display: flex;
+    align-items: center;
+
+    svg {
+      height: 2.4rem;
+      width: 2.4rem;
+      fill: $color-primary;
+      margin-right: 0.7rem;
+      transform: translateY(-1px);
+    }
+
+    &:focus {
+      color: #f6a184;
+    }
+
+    &:hover {
+      color: #f6a184;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    &__btn {
+      margin: 5px 0 5px 0;
+    }
+  }
+}
+
+/* Hide nav list by default on smaller screens */
+@media screen and (max-width: 900px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  /* Hide all nav items except the last one */
+  .nav__list {
+    display: none;
+    /* Hide collapsed items */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  /* Keep the last nav item always visible */
+  .nav__list .nav__item:last-child {
+    display: flex !important;
+  }
+
+  /* Show nav when active */
+  .nav__list.active {
+    display: flex;
+  }
+
+  /* Add a hamburger menu */
+  .nav__toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+}
+
+/* Hide hamburger menu on large screens */
+@media screen and (min-width: 901px) {
+  .nav__toggle {
+    display: none;
+
+  }
+
+
+  .nav__list {
+    display: flex !important;
+    /* Ensure full nav is visible on large screens */
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* Apply hover and focus styles correctly */
+.nav__toggle:focus svg path,
+.nav__toggle:hover svg path {
+  stroke: #e98b3e;
+}
+
+
+
+.bookmarks {
+  padding: 1rem 0;
+  position: absolute;
+  // right: 0;
+  right: -2.5rem;
+  z-index: 10;
+  width: 40rem;
+  background-color: #fff;
+  box-shadow: 0 0.8rem 5rem 2rem rgba($color-grey-dark-1, 0.1);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s 0.2s;
+
+  &__list {
+    list-style: none;
+  }
+
+  &__field {
+    cursor: pointer;
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $color-grey-light-2;
+    }
+  }
+
+  &:hover,
+  .nav__btn--bookmarks:hover+& {
+    visibility: visible;
+    opacity: 1;
+  }
+}

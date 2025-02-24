@@ -1,0 +1,162 @@
+.search-results {
+  background-color: white;
+  padding: 0 0 3rem 0;
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  z-index: 1;
+  position: fixed;
+  top: 10rem;
+  bottom: 0;
+  overflow: auto;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+
+  /* Custom Scrollbar for Firefox */
+  scrollbar-width: thin;
+  /* Makes it thinner */
+  scrollbar-color: #ffa962 #ffffff;
+
+  /* Thumb and track color */
+
+  /* Custom Scrollbar for Chrome, Edge, Safari */
+  &::-webkit-scrollbar {
+    width: 8px;
+    /* Scrollbar width */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #F2F0EF;
+    /* Track background */
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    /* Scrollbar color */
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+    /* Darker on hover */
+  }
+}
+
+.results {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.pagination {
+  position: relative;
+  padding: 4rem 3.5rem;
+
+  &__info {
+    color: #00000067;
+  }
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  &__btn {
+    &--prev {
+      float: left;
+    }
+
+    &--next {
+      float: right;
+    }
+  }
+
+
+
+
+}
+
+@media only screen and (max-width: 397px) {
+  .pagination {
+    width: 90%;
+  }
+}
+
+
+@media only screen and (max-width: 345px) {
+  .pagination {
+    width: 80%;
+  }
+
+}
+
+
+@media only screen and (max-width: 300px) {
+  .pagination {
+    width: 70%;
+  }
+
+}
+
+
+.current-page--number-page {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
+
+
+/* Default state: Hide the toggle button on large screens */
+.show-results-btn {
+  display: none;
+  border: none;
+  background-color: transparent;
+  list-style: none;
+
+  svg {
+    height: 3rem;
+    width: 3rem;
+    fill: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+}
+
+/* Apply hover and focus styles correctly */
+.show-results-btn:focus svg,
+.show-results-btn:hover svg {
+  fill: #e98b3e;
+}
+
+@media screen and (max-width: 900px) {
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .show-results-btn {
+    display: block;
+  }
+}
+
+
+
+
+.copyright {
+  color: $color-grey-dark-2;
+  font-size: 1.2rem;
+  padding: 0 3.5rem;
+  margin-top: auto;
+
+  .twitter-link:link,
+  .twitter-link:visited {
+    color: $color-grey-dark-2;
+  }
+}
