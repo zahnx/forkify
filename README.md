@@ -9,7 +9,7 @@
 - CSS
 - SASS
 
-## 📦 Installation
+## Installation
 
    ```bash
    git clone https://github.com/zahnx/forkify.git
