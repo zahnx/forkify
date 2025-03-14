@@ -8,3 +8,11 @@
 - HTML
 - CSS
 - SASS
+
+## 📦 Installation
+
+   ```bash
+   git clone https://github.com/zahnx/forkify.git
+   cd forkify
+   npm install
+   npm start
